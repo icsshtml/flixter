@@ -9,7 +9,8 @@ class LessonsController < ApplicationController
 
 	def require_authorized_for_current_lesson
 		if !current_user.enrolled_in?(current_lesson.section.course)
-			redirect_to course_path(current_section.course), alert: 'You mustenroll to view this course'
+			redirect_to course_path(current_lesson.section.course), alert: 'You mustenroll to view this course'
+		end
 	end
 
 	helper_method :current_lesson
